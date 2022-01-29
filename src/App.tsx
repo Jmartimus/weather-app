@@ -1,52 +1,63 @@
-import React, { useEffect, useState } from "react";
-import CatFacts from "./CatFacts";
-import useGetWeather from "./useGetWeather";
+import React, { useEffect, useState } from 'react';
+import CatFacts from './CatFacts';
+import { WeatherResults } from './Hooks/constants';
+import useGetWeather from './Hooks/useGetWeather';
 
 function App() {
-  const results = useGetWeather();
-  const getFirstDayTempHigh = () => {
-    if (results !== undefined) {
-      console.log(results);
+  const [weatherData, setWeatherData] = useState<WeatherResults>();
+  const results: WeatherResults | undefined = useGetWeather();
+
+  useEffect(() => {
+    getWeatherData();
+  }, []);
+
+  const getWeatherData = () => {
+    if (results) {
+      setWeatherData(results);
     }
     return;
   };
+
   return (
     <div>
       <CatFacts />
-      <button onClick={getFirstDayTempHigh}>How's the weather?!</button>
+      <button onClick={getWeatherData}>How's the weather?!</button>
       <div className="results-container">
         <p>
-          {" "}
           Conditions:
-          {results !== undefined ? results.currentConditions.conditions : ""}
+          {weatherData?.currentConditions.datetimeEpoch}
+        </p>
+        <p>
+          Conditions:
+          {weatherData?.currentConditions.conditions}
         </p>
         <p>
           Feels Like:
-          {results !== undefined ? results.currentConditions.feelslike : ""}
+          {weatherData?.currentConditions.feelslike}
         </p>
         <p>
           Humidity:
-          {results !== undefined ? results.currentConditions.humidity : ""}
+          {weatherData?.currentConditions.humidity}
         </p>
         <p>
           Precipitation:
-          {results !== undefined ? results.currentConditions.precip : ""}
+          {weatherData?.currentConditions.precip}
         </p>
         <p>
           Temp:
-          {results !== undefined ? results.currentConditions.temp : ""}
+          {weatherData?.currentConditions.temp}
         </p>
         <p>
           Sunrise time:
-          {results !== undefined ? results.currentConditions.sunrise : ""}
+          {weatherData?.currentConditions.sunrise}
         </p>
         <p>
           Sunset time:
-          {results !== undefined ? results.currentConditions.sunset : ""}
+          {weatherData?.currentConditions.sunset}
         </p>
         <p>
           Wind:
-          {results !== undefined ? results.currentConditions.windspeed : ""}
+          {weatherData?.currentConditions.windspeed}
         </p>
       </div>
     </div>

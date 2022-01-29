@@ -1,22 +1,32 @@
-import { KEY } from "./key";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { KEY } from '../Key';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { WeatherResults } from './constants';
 
 export const useGetWeather = () => {
-  const [weatherResults, setWeatherResults] = useState<any>();
+  const [weatherResults, setWeatherResults] = useState<WeatherResults>();
 
   useEffect(() => {
     const fetchWeather = async () => {
       const res = await axios.get(
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Qutiman%2C%20TX?unitGroup=metric&include=current&key=${KEY}&contentType=json`
       );
-      // console.log(res.data);
       setWeatherResults(res.data);
     };
     fetchWeather();
   }, []);
   return weatherResults;
 };
+// export const useGetWeather = async () => {
+//   const fetchWeather = async () => {
+//     const res = await axios.get(
+//       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Qutiman%2C%20TX?unitGroup=metric&include=current&key=${KEY}&contentType=json`
+//     );
+//     const results: WeatherResults = await res.data;
+//     return results;
+//   };
+//   return await fetchWeather();
+// };
 
 // const fetchWeather = () => {
 //   const [data, setData] = useState([]);
