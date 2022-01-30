@@ -1,64 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import CatFacts from './CatFacts';
-import { WeatherResults } from './Hooks/constants';
-import useGetWeather from './Hooks/useGetWeather';
+import { useEffect, useState } from 'react';
+import CatFacts from './API/CatFacts';
+import { WeatherResults } from './API/constants';
+import { useGetWeather } from './API/useGetWeather';
+import { Data } from './Data';
+
+// So we are going to have to have a conversation to figure out out planning from here.  How do we want to set up this project?
+// Do we want to have a few drop downs where users can pick their settings and then it spits out weather in the form
+// that they want it?
+//  Maybe a calendar that they can pick only the applicable days and then they can choose what kind of forecast?
+//  Do we want them to be able to pick the city?
+//  There are tons of options for this project now that we are succesfully recieving the data.
+// Let me know what you think
 
 function App() {
+  //We will most likely need to move most of this business logic into another component when we figure out how we are setting up this app.
+
+  //We are going to store the weatherData in the state below.
   const [weatherData, setWeatherData] = useState<WeatherResults>();
-  const results: WeatherResults | undefined = useGetWeather();
 
+  // This is a flag we will use to hide and show the data when the user clicks the button
+  const [hide, setHide] = useState(true);
+
+  // We call the useGetWeather hook as soon as we land on the page.  So the data is ready to go.
+  const weather: WeatherResults | undefined = useGetWeather();
+
+  //The useEffect helps us to stay out of an infinite loop by oply updating setWeatherData when the "weather" variable changes.
   useEffect(() => {
-    getWeatherData();
-  }, []);
+    setWeatherData(weather);
+  }, [weather]);
 
-  const getWeatherData = () => {
-    if (results) {
-      setWeatherData(results);
-    }
-    return;
+  //This is our toggle switch to show and hide the data
+  const toggleHide = () => {
+    setHide(!hide);
   };
 
   return (
     <div>
       <CatFacts />
-      <button onClick={getWeatherData}>How's the weather?!</button>
+      <button onClick={toggleHide}>How's the weather?!</button>
       <div className="results-container">
-        <p>
-          Conditions:
-          {weatherData?.currentConditions.datetimeEpoch}
-        </p>
-        <p>
-          Conditions:
-          {weatherData?.currentConditions.conditions}
-        </p>
-        <p>
-          Feels Like:
-          {weatherData?.currentConditions.feelslike}
-        </p>
-        <p>
-          Humidity:
-          {weatherData?.currentConditions.humidity}
-        </p>
-        <p>
-          Precipitation:
-          {weatherData?.currentConditions.precip}
-        </p>
-        <p>
-          Temp:
-          {weatherData?.currentConditions.temp}
-        </p>
-        <p>
-          Sunrise time:
-          {weatherData?.currentConditions.sunrise}
-        </p>
-        <p>
-          Sunset time:
-          {weatherData?.currentConditions.sunset}
-        </p>
-        <p>
-          Wind:
-          {weatherData?.currentConditions.windspeed}
-        </p>
+        {/*Below, we set a condition for the JSX.  If weatherData is NOT undefined AND hide is false, show the data.*/}
+        {weatherData && !hide ? (
+          <Data weatherData={weatherData} />
+        ) : (
+          <p>no data yet</p>
+        )}
       </div>
     </div>
   );

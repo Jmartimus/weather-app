@@ -1,3 +1,5 @@
+//We need all these types defined so that when we call useGetWeather, the app knows what shape the returning data is in
+
 export interface WeatherResults {
   address: string;
   currentConditions: CurrentConditions;
