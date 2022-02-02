@@ -16,13 +16,13 @@ function App() {
   //We will most likely need to move most of this business logic into another component when we figure out how we are setting up this app.
 
   //We are going to store the weatherData in the state below.
-  const [weatherData, setWeatherData] = useState<WeatherResults>();
+  const [weatherData, setWeatherData] = useState<Nullable<WeatherResults>>();
 
   // This is a flag we will use to hide and show the data when the user clicks the button
   const [hide, setHide] = useState(true);
 
   // We call the useGetWeather hook as soon as we land on the page.  So the data is ready to go.
-  const weather: WeatherResults | undefined = useGetWeather();
+  const weather: Nullable<WeatherResults> = useGetWeather();
 
   //The useEffect helps us to stay out of an infinite loop by oply updating setWeatherData when the "weather" variable changes.
   useEffect(() => {
