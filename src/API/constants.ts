@@ -1,5 +1,6 @@
 //We need all these types defined so that when we call useGetWeather, the app knows what shape the returning data is in
 
+//constants file hold things that aren't going to change
 export interface WeatherResults {
   address: string;
   currentConditions: CurrentConditions;
@@ -30,7 +31,7 @@ interface CurrentConditions {
   snowdepth: number;
   solarenergy: null;
   solarradiation: null;
-  stations: string[];
+  stations: string[]; //its an array of strings
   sunrise: string;
   sunriseEpoch: number;
   sunset: string;
