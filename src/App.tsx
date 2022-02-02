@@ -3,6 +3,7 @@ import CatFacts from './API/CatFacts';
 import { WeatherResults } from './API/constants';
 import { useGetWeather } from './API/useGetWeather';
 import { Data } from './Data';
+import { ReactComponent as Platypus } from './icons/platypuslogo.svg';
 
 // So we are going to have to have a conversation to figure out out planning from here.  How do we want to set up this project?
 // Do we want to have a few drop downs where users can pick their settings and then it spits out weather in the form
@@ -36,15 +37,12 @@ function App() {
 
   return (
     <div>
+      <Platypus />
       <CatFacts />
       <button onClick={toggleHide}>How's the weather?!</button>
       <div className="results-container">
         {/*Below, we set a condition for the JSX.  If weatherData is NOT undefined AND hide is false, show the data.*/}
-        {weatherData && !hide ? (
-          <Data weatherData={weatherData} />
-        ) : (
-          <p>no data yet</p>
-        )}
+        {weatherData && !hide ? <Data weatherData={weatherData} /> : <p>no data yet</p>}
       </div>
     </div>
   );
