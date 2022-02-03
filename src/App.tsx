@@ -4,6 +4,7 @@ import { WeatherResults } from "./API/constants";
 import { useGetWeather } from "./API/useGetWeather";
 import { Data } from "./Data";
 import Landing from "./API/Landing Page/landing";
+import "./styles.scss";
 
 // So we are going to have to have a conversation to figure out out planning from here.  How do we want to set up this project?
 // Do we want to have a few drop downs where users can pick their settings and then it spits out weather in the form

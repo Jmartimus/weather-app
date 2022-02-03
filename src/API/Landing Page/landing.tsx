@@ -15,8 +15,7 @@ const Landing: React.FC = () => {
   return (
     <div className="landing-container">
       <div className="logo-container">
-        {" "}
-        <img src="../platypus-logo.png" id="logo"></img>
+        <img src="../platypus-logo.svg" id="logo"></img>
       </div>
       <p>Platypus WEATHER</p>
       <form action="submit-zip-code">
