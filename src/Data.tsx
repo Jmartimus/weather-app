@@ -1,10 +1,13 @@
-import { WeatherResults } from './API/constants';
+import { WeatherResults } from "./API/constants";
 
 interface DataProps {
-  weatherData: WeatherResults;
+  //DataProps is the type of this prop, telling the app what kind of props to expect
+  weatherData: WeatherResults; //this includes weatherData, WeatherResults is the weatherData type
 }
 
 export const Data: React.FC<DataProps> = ({ weatherData }) => {
+  //react.functionalComponent = FC <DataProps> is the type, it takes in ({weatherData})
+  //you destructre which means its pulled from the {}
   return (
     <>
       <p>
