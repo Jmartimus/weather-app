@@ -25,7 +25,7 @@ function App() {
   const [hide, setHide] = useState(true);
 
   // We call the useGetWeather hook as soon as we land on the page.  So the data is ready to go.
-  const weather: Nullable<WeatherResults> = useGetWeather();
+  const weather: Nullable<WeatherResults> = useGetWeather('75126');
 
   //The useEffect helps us to stay out of an infinite loop by oply updating setWeatherData when the "weather" variable changes.
   useEffect(() => {
@@ -36,6 +36,7 @@ function App() {
   const toggleHide = () => {
     setHide(!hide);
   };
+  console.log(weatherData);
 
   return (
     <div>
