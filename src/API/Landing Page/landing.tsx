@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import "./landing.scss";
-import Button from "@mui/material/Button";
-import { TextField } from "@mui/material";
+import React, { useState, useEffect } from 'react';
+import './landing.scss';
+import Button from '@mui/material/Button';
+import { TextField } from '@mui/material';
 
 const Landing: React.FC = () => {
   const [input, setInput] = useState();
 
-  const [newInput, setNewInput] = useState("");
+  const [newInput, setNewInput] = useState('');
 
   const addInput = (input: string) => {
     console.log(input);
@@ -31,7 +31,7 @@ const Landing: React.FC = () => {
         />
 
         <Button variant="outlined" onClick={() => addInput(newInput)}>
-          Outlined
+          Submit
         </Button>
       </form>
     </div>
