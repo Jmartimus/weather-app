@@ -1,12 +1,10 @@
-import { KEY } from '../key';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { WeatherResults } from './constants';
+import { KEY } from '../Key';
+import { Nullable } from '../global';
 
-//regex check of valid zip code
-var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test('90210');
-
-//changed the API address to include a zip as a string, also changed the hook to HAVE to take in a zip.
+// changed the API address to include a zip as a string, also changed the hook to HAVE to take in a zip.
 
 export const useGetWeather = (ZIP: string) => {
   const [weatherResults, setWeatherResults] = useState<Nullable<WeatherResults>>(null);
