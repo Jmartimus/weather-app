@@ -1,5 +1,29 @@
-$font-family-expletus: "Expletus Sans", cursive;
+$font-family-expletus: 'Expletus Sans', cursive;
+@import './Variables.scss';
+
+@media screen and (max-width: $phone) {
+  html {
+    background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    background-size: 1000px;
+  }
+  .logo-container {
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  html {
+    background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    background-size: 1400px;
+    background-position: 50% 30%;
+  }
+  .container {
+    width: 50%;
+    margin: auto;
+  }
+}
 
 * {
   font-family: $font-family-expletus;
+  color: #0d86df;
 }

@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { WeatherResults } from '../API/constants';
 import { Nullable } from '../global';
+import { ReactComponent as Platypus } from '../icons/platypuslogo.svg';
+import './CurrentConditions.scss';
+// import cloudy from '../icons/overcast-logo.svg';
 
 interface CurrentConditionsProps {
   weatherData: Nullable<WeatherResults>;
@@ -9,8 +12,20 @@ interface CurrentConditionsProps {
 const CurrentConditions: React.FC<CurrentConditionsProps> = ({ weatherData }) => {
   console.log(weatherData);
   return (
-    <div className="conditions-container">
-      <h1>Today's Forcast:</h1>
+    <div className="container" id="conditions-container">
+      <div className="logo-container">
+        <img alt="platypus" src="src/icons/platypuslogo.svg" id="platypus-logo" />
+      </div>
+      <div className="text-container">
+        <h1>Today's Forcast:</h1>
+        <h2>Overcast 29°F</h2>
+        <h4>Feels Like: 15°F</h4>
+        <h4>Hi 34° | Lo 18°</h4>
+      </div>
+      <div className="logo-container">
+        {/* <img alt="overcast" src={cloudy} /> */}
+        <p>cloud Img</p>
+      </div>
     </div>
   );
 };

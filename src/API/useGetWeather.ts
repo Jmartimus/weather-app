@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { WeatherResults } from './constants';
-import { KEY } from '../Key';
+import { KEY } from '../key';
 import { Nullable } from '../global';
 
 // changed the API address to include a zip as a string, also changed the hook to HAVE to take in a zip.

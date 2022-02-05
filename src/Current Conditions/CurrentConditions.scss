@@ -1,0 +1,50 @@
+$desktop: 1280px;
+@import '../Variables.scss';
+
+@media screen and (max-width: $phone) {
+  #conditions-container {
+    background-color: white;
+    border-radius: 10px;
+    color: #0d86df;
+    border: 2px solid #0d86df;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .logo-container {
+    width: 100px;
+    overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  #conditions-container {
+    background-color: white;
+    border-radius: 10px;
+    color: #0d86df;
+    border: $border;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .logo-container {
+    width: 100px;
+    overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    flex: 1;
+  }
+}
