@@ -1,11 +1,12 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
-import './landing.scss';
+import './Landing.scss';
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import axios from 'axios';
 import { WeatherResults } from '../API/constants';
 import { Nullable } from '../global';
-import { KEY } from '../Key';
+import { KEY } from '../key';
+import { ReactComponent as Platypus } from '../icons/platypuslogo.svg';
 
 interface LandingProps {
   setWeatherData: Dispatch<SetStateAction<Nullable<WeatherResults>>>;
@@ -53,7 +54,7 @@ const Landing: React.FC<LandingProps> = ({ setWeatherData }) => {
   return (
     <div className="landing-container">
       <div className="logo-container">
-        <img alt="platypus" src="../platypus-logo.svg" id="logo" />
+        <Platypus />
       </div>
       <p>Platypus WEATHER</p>
       <form action="submit-zip-code">
