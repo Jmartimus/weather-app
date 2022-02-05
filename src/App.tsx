@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { WeatherResults } from './API/constants';
-import CurrentConditions from './Current Conditions/currentConditions';
+import CurrentConditions from './Current-Conditions/currentConditions';
 import { Nullable } from './global';
-import Landing from './Landing Page/Landing';
+import Landing from './Landing-Page/Landing';
 import './Styles.scss';
 
 function App() {
