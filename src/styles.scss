@@ -13,6 +13,32 @@ $font-family-expletus: 'Expletus Sans', cursive;
   }
   .logo-container {
     margin: auto;
+    width: 100px;
+    overflow: hidden;
+  }
+
+  h2,
+  h4 {
+    margin: 0;
+    font-size: 20px;
+  }
+  .main-container {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    border: $border;
+    border-radius: 10px;
+    color: #0d86df;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .logo-container {
+    width: 100px;
+    overflow: hidden;
+  }
+
+  #logo {
+    width: 100%;
   }
 }
 
@@ -20,11 +46,25 @@ $font-family-expletus: 'Expletus Sans', cursive;
   html {
     background-size: 2000px;
   }
+  .main-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #landing-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
 @media screen and (min-width: $phoneLandscape) {
   html {
     background-size: 2500px;
+  }
+  .main-container {
+    gap: 10px;
+  }
+  .container {
+    width: 80%;
   }
 }
 
@@ -36,6 +76,12 @@ $font-family-expletus: 'Expletus Sans', cursive;
   }
   .container {
     width: 50%;
+    margin: auto;
+  }
+  .logo-container,
+  .title-container,
+  .form-container {
+    width: 150px;
     margin: auto;
   }
 }
