@@ -14,7 +14,7 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ weatherData }) =>
   return (
     <div className="container" id="conditions-container">
       <div className="logo-container">
-        <img alt="platypus" src="src/icons/platypuslogo.svg" id="platypus-logo" />
+        <Platypus />
       </div>
       <div className="text-container">
         <h1>Today's Forcast:</h1>

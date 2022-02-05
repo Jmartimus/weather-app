@@ -1,7 +1,7 @@
 $desktop: 1280px;
 @import '../Variables.scss';
 
-@media screen and (max-width: $phone) {
+@media screen and (min-width: $phone) {
   #conditions-container {
     background-color: white;
     border-radius: 10px;
@@ -16,11 +16,35 @@ $desktop: 1280px;
     overflow: hidden;
   }
 
-  h1,
   h2,
-  h3,
   h4 {
     margin: 0;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: $tablet) {
+  #conditions-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (min-width: $phoneLandscape) {
+  .container {
+    width: 50%;
+    margin: auto;
+  }
+  .container {
+    width: 80%;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 25px;
   }
 }
 
@@ -36,15 +60,7 @@ $desktop: 1280px;
   }
 
   .logo-container {
-    width: 100px;
+    width: 150px;
     overflow: hidden;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin: 0;
-    flex: 1;
   }
 }
