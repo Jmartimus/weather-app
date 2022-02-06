@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
-import './Landing.scss';
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import axios from 'axios';
@@ -52,30 +51,36 @@ const Landing: React.FC<LandingProps> = ({ setWeatherData }) => {
   }, [zipInput]);
 
   return (
-    <div className="landing-container">
+    <div className="main-container" id="landing-container">
       <div className="logo-container">
         <Platypus />
       </div>
-      <p>Platypus WEATHER</p>
-      <form action="submit-zip-code">
-        <p>Enter your zip code to see the current weather conditions:</p>
-        <TextField
-          id="outlined-basic"
-          label="Enter Zip Code"
-          variant="outlined"
-          required
-          inputProps={{ maxLength: 5 }}
-          value={zipInput}
-          onChange={(e) => {
-            setZipInput(e.target.value);
-          }}
-          error={error}
-          helperText={error ? 'Invalid zip code.' : ''}
-        />
-        <Button variant="outlined" onClick={() => addInput(zipInput)}>
-          Submit
-        </Button>
-      </form>
+      <div className="title-container">
+        <h1>Platypus WEATHER</h1>
+      </div>
+      <div className="form-container">
+        <form action="submit-zip-code">
+          <p>Enter your zip code to see the current weather conditions:</p>
+          <TextField
+            id="outlined-basic"
+            label="Enter Zip Code"
+            variant="outlined"
+            required
+            inputProps={{ maxLength: 5 }}
+            value={zipInput}
+            size="small"
+            onChange={(e) => {
+              setZipInput(e.target.value);
+            }}
+            error={error}
+            helperText={error ? 'Invalid zip code.' : ''}
+          />
+          <br />
+          <Button variant="outlined" onClick={() => addInput(zipInput)}>
+            Submit
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };

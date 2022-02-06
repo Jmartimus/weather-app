@@ -2,7 +2,6 @@ import * as React from 'react';
 import { WeatherResults } from '../API/constants';
 import { Nullable } from '../global';
 import { ReactComponent as Platypus } from '../icons/platypuslogo.svg';
-import './CurrentConditions.scss';
 // import cloudy from '../icons/overcast-logo.svg';
 
 interface CurrentConditionsProps {
@@ -12,7 +11,7 @@ interface CurrentConditionsProps {
 const CurrentConditions: React.FC<CurrentConditionsProps> = ({ weatherData }) => {
   console.log(weatherData);
   return (
-    <div className="container" id="conditions-container">
+    <div className="main-container">
       <div className="logo-container">
         <Platypus />
       </div>
