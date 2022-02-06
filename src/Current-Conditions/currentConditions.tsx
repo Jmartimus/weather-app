@@ -11,7 +11,7 @@ interface CurrentConditionsProps {
 const CurrentConditions: React.FC<CurrentConditionsProps> = ({ weatherData }) => {
   console.log(weatherData);
   return (
-    <div className="main-container" id="conditions-container">
+    <div className="main-container">
       <div className="logo-container">
         <Platypus />
       </div>
