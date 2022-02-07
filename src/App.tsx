@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { WeatherResults } from './API/constants';
 import CurrentConditions from './Current-Conditions/CurrentConditions';
 import { Nullable } from './global';
@@ -9,8 +10,13 @@ function App() {
   const [weatherData, setWeatherData] = useState<Nullable<WeatherResults>>(null);
   return (
     <div>
-      <Landing setWeatherData={setWeatherData} />
-      <CurrentConditions weatherData={weatherData} />
+      <Routes>
+        <Route path="/" element={<Landing setWeatherData={setWeatherData} />} />
+        <Route
+          path="/CurrentConditions"
+          element={<CurrentConditions setWeatherData={setWeatherData} weatherData={weatherData} />}
+        />
+      </Routes>
     </div>
   );
 }
