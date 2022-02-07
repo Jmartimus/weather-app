@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 're
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { WeatherResults } from '../API/constants';
 import { Nullable } from '../global';
 import { KEY } from '../key';
@@ -15,8 +16,8 @@ const Landing: React.FC<LandingProps> = ({ setWeatherData }) => {
   const [zipInput, setZipInput] = useState('');
   const [validZip, setValidZip] = useState(false);
   const [error, setError] = useState(false);
-
-  const addInput = (zip: string) => {
+  const navigate = useNavigate();
+  const submitZip = (zip: string) => {
     // regex check of valid zip code
     const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
     if (isValidZip) {
@@ -36,12 +37,18 @@ const Landing: React.FC<LandingProps> = ({ setWeatherData }) => {
           `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${ZIP}?unitGroup=metric&include=current&key=${KEY}&contentType=json`
         );
         setWeatherData(await res.data);
+        navigate('/CurrentConditions');
         setError(false);
+        setZipInput('');
+        setValidZip(false);
       } catch {
         setError(true);
+        setValidZip(false);
       }
     };
-    fetchWeather(zipInput);
+    if (validZip) {
+      fetchWeather(zipInput);
+    }
   }, [validZip]);
 
   useEffect(() => {
@@ -76,7 +83,7 @@ const Landing: React.FC<LandingProps> = ({ setWeatherData }) => {
             helperText={error ? 'Invalid zip code.' : ''}
           />
           <br />
-          <Button variant="outlined" onClick={() => addInput(zipInput)}>
+          <Button variant="outlined" onClick={() => submitZip(zipInput)}>
             Submit
           </Button>
         </form>
