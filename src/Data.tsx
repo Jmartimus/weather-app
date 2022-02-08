@@ -10,6 +10,7 @@ export const Data: React.FC<DataProps> = ({ weatherData }) => (
   // react.functionalComponent = FC <DataProps> is the type, it takes in ({weatherData})
   // you destructre which means its pulled from the {}
   <>
+    {weatherData.days[0]}
     <p>
       Conditions:
       {weatherData.currentConditions.datetimeEpoch}
@@ -30,10 +31,7 @@ export const Data: React.FC<DataProps> = ({ weatherData }) => (
       Precipitation:
       {weatherData.currentConditions.precip}
     </p>
-    <p>
-      Temp:
-      {weatherData.currentConditions.temp}
-    </p>
+    <p>Temp:</p>
     <p>
       Sunrise time:
       {weatherData.currentConditions.sunrise}

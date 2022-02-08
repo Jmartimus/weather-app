@@ -18,16 +18,22 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, w
     setWeatherData(null);
   };
   console.log(weatherData);
+  console.log(weatherData!.days[0].tempmax);
   return (
     <div className="main-container">
       <div className="logo-container">
         <Platypus />
       </div>
       <div className="text-container">
-        <h1>Today's Forcast:</h1>
-        <h2>Overcast 29°F</h2>
-        <h4>Feels Like: 15°F</h4>
-        <h4>Hi 34° | Lo 18°</h4>
+        <h1>Today's Forcast: {weatherData!.currentConditions.conditions}</h1>
+        <h2>Temp: {(weatherData!.currentConditions.temp * 9) / 5 + 32}°F</h2>
+        <h4>Feels Like: {(weatherData!.currentConditions.feelslike * 9) / 5 + 32}°F</h4>
+        <h4>Wind: {weatherData!.currentConditions.windspeed} mph</h4>
+
+        <h4>
+          Hi: {Math.floor((weatherData!.days[0].tempmax * 9) / 5 + 32)}°F | Lo:{' '}
+          {Math.floor((weatherData!.days[0].tempmin * 9) / 5 + 32)}°F
+        </h4>
       </div>
       <Button variant="outlined" onClick={goHome}>
         Back home
