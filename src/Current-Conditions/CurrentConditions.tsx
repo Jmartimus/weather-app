@@ -7,7 +7,6 @@ import { ReactComponent as Platypus } from '../icons/platypuslogo.svg';
 import { toFahrenheit } from '../utils';
 
 // import cloudy from '../icons/overcast-logo.svg';
-
 interface CurrentConditionsProps {
   setWeatherData: Dispatch<React.SetStateAction<Nullable<WeatherResults>>>;
   weatherData: Nullable<WeatherResults>;
