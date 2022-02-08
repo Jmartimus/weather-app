@@ -1,6 +1,6 @@
 {
   "name": "weather-app",
-  "homepage": "https://github.com/Jmartimus/weather-app.git",
+  "homepage": "https://github.com/Jmartimus/weather-app.git/index.html",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
