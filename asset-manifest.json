@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Jmartimus/weather-app.git/static/css/main.1b3f822c.css",
+    "main.js": "/Jmartimus/weather-app.git/static/js/main.8e22c4e3.js",
+    "static/media/platypuslogo.svg": "/Jmartimus/weather-app.git/static/media/platypuslogo.fdd3cf37e1029d786f877b332423006e.svg",
+    "index.html": "/Jmartimus/weather-app.git/index.html",
+    "main.1b3f822c.css.map": "/Jmartimus/weather-app.git/static/css/main.1b3f822c.css.map",
+    "main.8e22c4e3.js.map": "/Jmartimus/weather-app.git/static/js/main.8e22c4e3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b3f822c.css",
+    "static/js/main.8e22c4e3.js"
+  ]
+}
