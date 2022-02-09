@@ -7,15 +7,16 @@ $font-family-expletus: 'Expletus Sans', cursive;
 }
 html {
   background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-  background-size: 1450px;
+  background-size: 375vw;
   @media screen and (min-width: $tablet) {
-    background-size: 2000px;
+    background-size: 300vw;
   }
   @media screen and (min-width: $phoneLandscape) {
-    background-size: 2500px;
+    background-size: 250vw;
   }
   @media screen and (min-width: $desktop) {
-    background-size: 1400px;
+    // background-size: 1400px;
+    object-fit: cover;
     background-position: 50% 30%;
   }
 }

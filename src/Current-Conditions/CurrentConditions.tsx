@@ -29,15 +29,14 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, w
         <h2>Temp: {toFahrenheit(weatherData!.currentConditions.feelslike)}°F</h2>
         <h4>Feels Like: {toFahrenheit(weatherData!.currentConditions.feelslike)}°F</h4>
         <h4>Wind: {weatherData!.currentConditions.windspeed} mph</h4>
-
         <h4>
           Hi: {toFahrenheit(weatherData!.days[0].tempmax)}°F | Lo:{' '}
           {toFahrenheit(weatherData!.days[0].tempmin)}°F
         </h4>
+        <Button variant="outlined" onClick={goHome}>
+          Back home
+        </Button>
       </div>
-      <Button variant="outlined" onClick={goHome}>
-        Back home
-      </Button>
       <div className="logo-container">
         {/* <img alt="overcast" src={cloudy} /> */}
         <p>cloud Img</p>
