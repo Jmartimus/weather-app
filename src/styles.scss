@@ -1,25 +1,19 @@
-$font-family-expletus: 'Expletus Sans', cursive;
 @import './Variables.scss';
 
 * {
   font-family: $font-family-expletus;
   color: #0d86df;
+  margin: 0;
+  padding: 0;
 }
-html {
-  background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-  background-size: 375vw;
-  @media screen and (min-width: $tablet) {
-    background-size: 300vw;
-  }
-  @media screen and (min-width: $phoneLandscape) {
-    background-size: 250vw;
-  }
-  @media screen and (min-width: $desktop) {
-    // background-size: 1400px;
-    object-fit: cover;
-    background-position: 50% 30%;
-  }
+
+#background {
+  background: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260')
+    no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
 }
+
 .main-container {
   background-color: white;
   padding: 0;
@@ -42,6 +36,7 @@ html {
     width: 50%;
   }
 }
+
 .logo-container {
   margin: auto;
   width: 100px;
@@ -50,14 +45,17 @@ html {
     width: 150px;
   }
 }
+
 #logo {
   width: 100%;
 }
+
 h2,
 h4 {
   margin: 0;
   font-size: 20px;
 }
+
 .title-container,
 .form-container {
   width: 150px;
