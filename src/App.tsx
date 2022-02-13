@@ -9,15 +9,13 @@ import './styles.scss';
 function App() {
   const [weatherData, setWeatherData] = useState<Nullable<WeatherResults>>(null);
   return (
-    <div id="background">
-      <Routes>
-        <Route path="/" element={<Landing setWeatherData={setWeatherData} />} />
-        <Route
-          path="/CurrentConditions"
-          element={<CurrentConditions setWeatherData={setWeatherData} weatherData={weatherData} />}
-        />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Landing setWeatherData={setWeatherData} />} />
+      <Route
+        path="/CurrentConditions"
+        element={<CurrentConditions setWeatherData={setWeatherData} weatherData={weatherData} />}
+      />
+    </Routes>
   );
 }
 
