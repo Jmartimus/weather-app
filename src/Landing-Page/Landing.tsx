@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { WeatherResults } from '../API/constants';
+import { WeatherResults } from '../constants';
 import { Nullable } from '../global';
 import { KEY } from '../key';
 import { ReactComponent as Platypus } from '../icons/platypuslogo.svg';

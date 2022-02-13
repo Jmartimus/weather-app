@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { WeatherResults } from './API/constants';
+import { WeatherResults } from './constants';
 import CurrentConditions from './Current-Conditions/CurrentConditions';
 import { Nullable } from './global';
 import Landing from './Landing-Page/Landing';
