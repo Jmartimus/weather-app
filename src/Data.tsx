@@ -1,5 +1,5 @@
 import React from 'react';
-import { WeatherResults } from './API/constants';
+import { WeatherResults } from './constants';
 
 interface DataProps {
   // DataProps is the type of this prop, telling the app what kind of props to expect

@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { WeatherResults } from '../API/constants';
+import { WeatherResults } from '../constants';
 import { Nullable } from '../global';
 import { KEY } from '../key';
 import { ReactComponent as Platypus } from '../icons/platypuslogo.svg';
@@ -58,35 +58,37 @@ const Landing: React.FC<LandingProps> = ({ setWeatherData }) => {
   }, [zipInput]);
 
   return (
-    <div className="main-container" id="landing-container">
-      <div className="logo-container">
-        <Platypus />
-      </div>
-      <div className="title-container">
-        <h1>Platypus WEATHER</h1>
-      </div>
-      <div className="form-container">
-        <form action="submit-zip-code">
-          <p>Enter your zip code to see the current weather conditions:</p>
-          <TextField
-            id="outlined-basic"
-            label="Enter Zip Code"
-            variant="outlined"
-            required
-            inputProps={{ maxLength: 5 }}
-            value={zipInput}
-            size="small"
-            onChange={(e) => {
-              setZipInput(e.target.value);
-            }}
-            error={error}
-            helperText={error ? 'Invalid zip code.' : ''}
-          />
-          <br />
-          <Button variant="outlined" onClick={() => submitZip(zipInput)}>
-            Submit
-          </Button>
-        </form>
+    <div id="background">
+      <div className="main-container">
+        <div className="logo-container">
+          <Platypus />
+        </div>
+        <div className="title-container">
+          <h1>Platypus WEATHER</h1>
+        </div>
+        <div className="form-container">
+          <form action="submit-zip-code">
+            <p>Enter your zip code to see the current weather conditions:</p>
+            <TextField
+              id="outlined-basic"
+              label="Enter Zip Code"
+              variant="outlined"
+              required
+              inputProps={{ maxLength: 5 }}
+              value={zipInput}
+              size="small"
+              onChange={(e) => {
+                setZipInput(e.target.value);
+              }}
+              error={error}
+              helperText={error ? 'Invalid zip code.' : ''}
+            />
+            <br />
+            <Button variant="outlined" onClick={() => submitZip(zipInput)}>
+              Submit
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
   );
