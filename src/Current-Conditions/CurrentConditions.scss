@@ -1,0 +1,29 @@
+.multiDay-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  //   margin: auto;
+  width: 100vw;
+}
+
+// .multiDay-container {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
+//     background-color: white;
+//     border: $border;
+//     border-radius: 10px;
+//     box-shadow: 2px 2px 2px 1px rgb(78, 78, 78);
+//     @media screen and (min-width: $tablet) {
+//       display: flex;
+//       justify-content: space-evenly;
+//     }
+//     @media screen and (min-width: $phoneLandscape) {
+//       gap: 10px;
+//       width: 80%;
+//       margin: auto;
+//     }
+//     @media screen and (min-width: $desktop) {
+//       width: 50%;
+//     }
+//   }
