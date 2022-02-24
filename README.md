@@ -24,7 +24,7 @@ Simply sign up [here](https://www.visualcrossing.com/sign-up), and visual crossi
 **Be sure to delete node_modules entire folder when yarn is installed.
 then use the command: yarn in the terminal, it will reinstall the correct packages, dependencies, etc.**
 
-The project is also hosted on [Netlify](https://6203e25eb413ce000821bc2e--wonderful-kilby-40a75c.netlify.app/).
+The project is also hosted on [Netlify](https://6217c82bcf3e0600075581ff--platypusweatherapp.netlify.app).
 
 ## Future Features:
 
