@@ -44,7 +44,7 @@ interface CurrentConditions {
   windspeed: number;
 }
 
-interface Day {
+export interface Day {
   cloudcover: number;
   conditions: string;
   datetime: string;
