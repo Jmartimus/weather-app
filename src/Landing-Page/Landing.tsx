@@ -31,21 +31,27 @@ const Landing: React.FC<LandingProps> = ({ setWeatherData }) => {
       firstUpdate.current = false;
       return;
     }
+    const controller = new AbortController();
     const fetchWeather = async (ZIP: string) => {
       try {
         const res = await axios.get<WeatherResults>(
-          `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${ZIP}?unitGroup=metric&include=current&key=${KEY}&contentType=json`
+          `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${ZIP}?unitGroup=metric&include=current&key=${KEY}&contentType=json`,
+          {
+            signal: controller.signal,
+          }
         );
         setWeatherData(await res.data);
-        navigate('/CurrentConditions');
         setError(false);
         setZipInput('');
         setValidZip(false);
+        navigate('/CurrentConditions');
+        controller?.abort();
       } catch {
         setError(true);
         setValidZip(false);
       }
     };
+
     if (validZip) {
       fetchWeather(zipInput);
     }

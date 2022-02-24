@@ -30,3 +30,5 @@ rules:
   react/destructuring-assignment: 0
   no-console: 0
   no-shadow: 0
+  no-unused-vars: off
+  "@typescript-eslint/no-unused-vars": "error"
