@@ -1,24 +1,26 @@
 import React from 'react';
+// import { default as dayjs } from 'dayjs';
 import { Day } from '../constants';
-import { toFahrenheit } from '../utils';
-// import { Slider } from '@mui/material';
+import { changeToDay, toFahrenheit } from '../utils';
 import './Forecast.scss';
 
-// import cloudy from '../icons/overcast-logo.svg';
+// import * as dayjs from 'dayjs';
+
 interface ForecastProps {
   day: Day;
 }
+// const todayDate = dayjs().format('ddd MMM DD, YYYY');
+// console.log(todayDate);
 
 const Forecast: React.FC<ForecastProps> = ({ day }) => (
   <div className="day-container">
     <ul className="day-list">
-      <li>{day.datetime}</li>
-
-      <li>{day.conditions}</li>
-      <li>
+      <li key={`${day.datetime}-today's-new-date`}>{changeToDay(day.datetime)}</li>
+      <li key={`${day.datetime}-conditions`}>{day.conditions}</li>
+      <li key={`${day.datetime}-high-and-low-temp`}>
         {toFahrenheit(day.tempmax)}°F | {toFahrenheit(day.tempmin)}°F
       </li>
-      <li>Feels Like: {toFahrenheit(day.feelslike)}°F</li>
+      <li key={`${day.datetime}-feels-like`}>Feels Like: {toFahrenheit(day.feelslike)}°F</li>
     </ul>
   </div>
 );

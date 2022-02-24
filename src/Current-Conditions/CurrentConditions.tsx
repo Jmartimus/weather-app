@@ -1,22 +1,22 @@
-import { Button, Slider } from '@mui/material';
+import { Button, ButtonGroup } from '@mui/material';
 import React, { Dispatch, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { cloudyPic, foggyPic, rainyPic, snowPic, sunnyPic, WeatherResults } from '../constants';
+// import { default as dayjs } from 'dayjs';
 import Forecast from '../Forecast/Forecast';
 import { Nullable } from '../global';
 import { ReactComponent as Platypus } from '../icons/platypuslogo.svg';
 import { toFahrenheit } from '../utils';
+import { cloudyPic, foggyPic, rainyPic, snowPic, sunnyPic, WeatherResults } from '../constants';
 
 interface CurrentConditionsProps {
   setWeatherData: Dispatch<React.SetStateAction<Nullable<WeatherResults>>>;
   weatherData: Nullable<WeatherResults>;
 }
-
-// enum Forecasts {
-//   THREEDAY = 'Three Day Forecast',
-//   SEVENDAY = 'Seven Day Forecast',
-//   FOURTEENDAY = 'Fourteen Day Forecast',
-// }
+enum Forecasts {
+  THREEDAY = 'Three Day Forecast',
+  SEVENDAY = 'Seven Day Forecast',
+  FOURTEENDAY = 'Fourteen Day Forecast',
+}
 
 const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, weatherData }) => {
   const [currentPic, setCurrentPic] = useState('');
@@ -26,7 +26,7 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, w
     setWeatherData(null); //  we setWeatherData to null so that when we go back home it's empty for another user input
   };
 
-  // const [forecastChoice, setForecastChoice] = useState<Forecasts>(Forecasts.THREEDAY);
+  const [forecastChoice, setForecastChoice] = useState<Forecasts>(Forecasts.THREEDAY);
 
   // change this section to a vaiable
   if (currentPic === '') {
@@ -65,7 +65,7 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, w
           <Platypus />
         </div>
         <div className="text-container">
-          <h1>Today's Forcast: {weatherData!.currentConditions.conditions}</h1>
+          <h1>Today's Forcast:{weatherData!.currentConditions.conditions}</h1>
           <h2>Temp: {toFahrenheit(weatherData!.currentConditions.feelslike)}°F</h2>
           <h4>Feels Like: {toFahrenheit(weatherData!.currentConditions.feelslike)}°F</h4>
           <h4>Wind: {weatherData!.currentConditions.windspeed} mph</h4>
@@ -74,8 +74,15 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, w
             {toFahrenheit(weatherData!.days[0].tempmin)}°F
           </h4>
           <Button variant="outlined" onClick={goHome}>
-            Back home
+            Back Home
           </Button>
+          <div className="btnGroup-container">
+            <ButtonGroup variant="text" aria-label="text button group">
+              <Button onClick={() => setForecastChoice(Forecasts.THREEDAY)}>3-Day</Button>
+              <Button onClick={() => setForecastChoice(Forecasts.SEVENDAY)}>7-Day</Button>
+              <Button onClick={() => setForecastChoice(Forecasts.FOURTEENDAY)}>14-Day</Button>
+            </ButtonGroup>
+          </div>
         </div>
         <div className="logo-container">
           <img
@@ -86,41 +93,27 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, w
         </div>
       </div>
       <div className="multiDay-container">
-        <Slider
-          name="Multi-Day Forecast"
-          defaultValue={0}
-          marks
-          min={0}
-          max={2}
-          step={1}
-          size="small"
-        />
-        <div id="threeDay-container">
-          {weatherData?.days.slice(1, 15).map((day) => (
-            <Forecast day={day} />
-          ))}
-        </div>
-        {/* {forecastChoice === Forecasts.THREEDAY && (
+        {forecastChoice === Forecasts.THREEDAY && (
           <div id="threeDay-container">
             {weatherData?.days.slice(1, 4).map((day) => (
-              <Forecast day={day} />
+              <Forecast day={day} key={day.datetime} />
             ))}
           </div>
         )}
         {forecastChoice === Forecasts.SEVENDAY && (
           <div id="sevenDay-container">
             {weatherData?.days.slice(1, 8).map((day) => (
-              <Forecast day={day} />
+              <Forecast day={day} key={day.datetime} />
             ))}
           </div>
         )}
         {forecastChoice === Forecasts.FOURTEENDAY && (
           <div id="fourteenDay-container">
             {weatherData?.days.slice(1, 15).map((day) => (
-              <Forecast day={day} />
+              <Forecast day={day} key={day.datetime} />
             ))}
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
