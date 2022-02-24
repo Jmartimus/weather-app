@@ -1,7 +1,6 @@
 import { Button, ButtonGroup } from '@mui/material';
 import React, { Dispatch, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { default as dayjs } from 'dayjs';
 import Forecast from '../Forecast/Forecast';
 import { Nullable } from '../global';
 import { ReactComponent as Platypus } from '../icons/platypuslogo.svg';
@@ -28,7 +27,6 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, w
 
   const [forecastChoice, setForecastChoice] = useState<Forecasts>(Forecasts.THREEDAY);
 
-  // change this section to a vaiable
   if (currentPic === '') {
     if (weatherData!.currentConditions.conditions.includes('Rain')) {
       setCurrentPic(rainyPic);
@@ -65,7 +63,7 @@ const CurrentConditions: React.FC<CurrentConditionsProps> = ({ setWeatherData, w
           <Platypus />
         </div>
         <div className="text-container">
-          <h1>Today's Forcast:{weatherData!.currentConditions.conditions}</h1>
+          <h1>Today's Forcast: {weatherData!.currentConditions.conditions}</h1>
           <h2>Temp: {toFahrenheit(weatherData!.currentConditions.feelslike)}°F</h2>
           <h4>Feels Like: {toFahrenheit(weatherData!.currentConditions.feelslike)}°F</h4>
           <h4>Wind: {weatherData!.currentConditions.windspeed} mph</h4>

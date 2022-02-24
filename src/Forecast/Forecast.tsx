@@ -1,16 +1,11 @@
 import React from 'react';
-// import { default as dayjs } from 'dayjs';
 import { Day } from '../constants';
 import { changeToDay, toFahrenheit } from '../utils';
 import './Forecast.scss';
 
-// import * as dayjs from 'dayjs';
-
 interface ForecastProps {
   day: Day;
 }
-// const todayDate = dayjs().format('ddd MMM DD, YYYY');
-// console.log(todayDate);
 
 const Forecast: React.FC<ForecastProps> = ({ day }) => (
   <div className="day-container">

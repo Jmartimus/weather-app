@@ -19,7 +19,6 @@ export const useGetWeather = (ZIP: string) => {
   }, [fetchWeather]);
   return weatherResults;
 };
-export default WeatherResults;
 
 // export const useGetWeather = (): Nullable<WeatherResults> => {
 //   const [data, setData] = useState<Nullable<WeatherResults>>(null);

@@ -112,28 +112,3 @@ export const foggyPic =
   'https://images.unsplash.com/photo-1479476437642-f85d89e5ad7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80';
 export const cloudyPic =
   'https://images.unsplash.com/photo-1551485324-27120d4b3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80';
-
-// export const dayOfWeek = [
-//   'Sunday',
-//   'Monday',
-//   'Tuesday',
-//   'Wednesday',
-//   'Thursday',
-//   'Friday',
-//   'Saturday',
-// ];
-
-// export const monthOfYear = [
-//   'Jan',
-//   'Feb',
-//   'Mar',
-//   'Apr',
-//   'May',
-//   'Jun',
-//   'Jul',
-//   'Aug',
-//   'Sep',
-//   'Oct',
-//   'Nov',
-//   'Dec',
-// ];
