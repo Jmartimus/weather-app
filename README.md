@@ -26,10 +26,11 @@ then use the command: yarn in the terminal, it will reinstall the correct packag
 
 The project is also hosted on [Netlify](https://6203e25eb413ce000821bc2e--wonderful-kilby-40a75c.netlify.app/).
 
-## Future Features:
+## Features:
 
+- Current Conditions
 - 3, 7, 14 day forecast
-- Icons coinciding with the current conditions
+- Background image coinciding with the current conditions
 
 ## Screenshots:
 
@@ -40,5 +41,3 @@ The project is also hosted on [Netlify](https://6203e25eb413ce000821bc2e--wonder
 | sthompson082290@gmail.com                                       | jmartinez070589@gmail.com                                            |
 | [LinkedIn](https://www.linkedin.com/in/scott-thompson-600ba8b3) | [LinkedIn](https://www.linkedin.com/in/jonathan-martinez-956179176/) |
 | [GitHub](https://github.com/thompsons90)                        | [GitHub](https://github.com/Jmartimus)                               |
-
-7
